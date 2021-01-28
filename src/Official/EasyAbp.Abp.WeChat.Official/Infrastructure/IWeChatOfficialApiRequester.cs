@@ -9,11 +9,11 @@ namespace EasyAbp.Abp.WeChat.Official.Infrastructure
         Task<string> RequestAsync(string targetUrl,
             HttpMethod method,
             IOfficialRequest officialRequest = null,
-            bool withAccessToken = true);
+            bool withAccessToken = true, HttpContent httpContent = null);
 
         Task<TResponse> RequestAsync<TResponse>(string targetUrl,
             HttpMethod method,
             IOfficialRequest officialRequest = null,
-            bool withAccessToken = true);
+            bool withAccessToken = true, HttpContent httpContent = null);
     }
 }

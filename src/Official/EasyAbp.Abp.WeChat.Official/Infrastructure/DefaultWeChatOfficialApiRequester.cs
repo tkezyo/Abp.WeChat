@@ -25,7 +25,7 @@ namespace EasyAbp.Abp.WeChat.Official.Infrastructure
         public async Task<string> RequestAsync(string targetUrl,
             HttpMethod method,
             IOfficialRequest officialRequest = null,
-            bool withAccessToken = true)
+            bool withAccessToken = true, HttpContent httpContent = null)
         {
             var client = _httpClientFactory.CreateClient();
 
@@ -38,7 +38,7 @@ namespace EasyAbp.Abp.WeChat.Official.Infrastructure
 
             var requestMsg = method == HttpMethod.Get
                 ? BuildHttpGetRequestMessage(targetUrl, officialRequest)
-                : BuildHttpPostRequestMessage(targetUrl, officialRequest);
+                : BuildHttpPostRequestMessage(targetUrl, officialRequest, httpContent);
 
             return await (await client.SendAsync(requestMsg)).Content.ReadAsStringAsync();
         }
@@ -46,12 +46,12 @@ namespace EasyAbp.Abp.WeChat.Official.Infrastructure
         public async Task<TResponse> RequestAsync<TResponse>(string targetUrl,
             HttpMethod method,
             IOfficialRequest officialRequest = null,
-            bool withAccessToken = true)
+            bool withAccessToken = true, HttpContent httpContent = null)
         {
             var resultStr = await RequestAsync(targetUrl,
                 method,
                 officialRequest,
-                withAccessToken);
+                withAccessToken, httpContent);
 
             return JsonConvert.DeserializeObject<TResponse>(resultStr);
         }
@@ -67,12 +67,21 @@ namespace EasyAbp.Abp.WeChat.Official.Infrastructure
             return new HttpRequestMessage(HttpMethod.Get, requestUrl);
         }
 
-        private HttpRequestMessage BuildHttpPostRequestMessage(string targetUrl, IOfficialRequest officialRequest)
+        private HttpRequestMessage BuildHttpPostRequestMessage(string targetUrl, IOfficialRequest officialRequest, HttpContent httpContent = null)
         {
-            return new HttpRequestMessage(HttpMethod.Post, targetUrl)
+            if (httpContent is object)
             {
-                Content = new StringContent(officialRequest.ToString())
-            };
+                var request = BuildHttpGetRequestMessage(targetUrl, officialRequest);
+                request.Content = httpContent;
+                return request;
+            }
+            else
+            {
+                return new HttpRequestMessage(HttpMethod.Post, targetUrl)
+                {
+                    Content = new StringContent(officialRequest.ToString())
+                };
+            }
         }
 
         private string BuildQueryString(string targetUrl, IOfficialRequest request)
