@@ -90,6 +90,31 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media
             HttpMethod.Post,
             null, true, content);
         }
+        public Task<DelMediaResponse> DelMediaAsync(GetMediaRequest request)
+        {
+            return WeChatOfficialApiRequester.RequestAsync<DelMediaResponse>(DelMaterialUrl,
+              HttpMethod.Post,
+              request);
+        }
+        public Task<DelMediaResponse> UpdateNewsAsync(UpdateNewsRequest request)
+        {
+            return WeChatOfficialApiRequester.RequestAsync<DelMediaResponse>(UpdateNewsUrl,
+              HttpMethod.Post,
+              request);
+        }
+        public Task<GetMaterialCountResponse> GetMaterialCountAsync()
+        {
+            return WeChatOfficialApiRequester.RequestAsync<GetMaterialCountResponse>(GetMaterialCountUrl,
+              HttpMethod.Post
+              );
+        }
+        public Task<BatchGetMaterialResponse> BatchGetMaterialAsync(BatchgetMaterialRequest request)
+        {
+            return WeChatOfficialApiRequester.RequestAsync<BatchGetMaterialResponse>(BatchGetMaterialUrl,
+              HttpMethod.Post,
+              request);
+        }
+
 
     }
 }
