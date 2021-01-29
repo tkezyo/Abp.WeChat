@@ -15,6 +15,7 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Response
         [JsonProperty("total")]
         public int Total { get; set; }
 
+        [JsonProperty("live_replay")]
         public List<LiveReplay> LiveReplay { get; set; }
 
     }

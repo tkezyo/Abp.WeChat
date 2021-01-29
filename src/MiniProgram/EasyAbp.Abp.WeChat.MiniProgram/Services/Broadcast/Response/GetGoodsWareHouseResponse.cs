@@ -16,7 +16,8 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Response
         [JsonProperty("total")]
         public int Total { get; set; }
 
-        public List <GetGoods> GetGoods { get; set; }
+        [JsonProperty("goods")]
+        public List <GetGoods> Goods { get; set; }
 
 
     }

@@ -15,6 +15,7 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Response
         [JsonProperty("total")]
         public int Total { get; set; }
 
+        [JsonProperty("room_info")]
         public List<RoomInfo> RoomInfo { get; set; }
 
 
@@ -47,6 +48,7 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Response
         [JsonProperty("anchor_name")]
         public string AnchorName { get; set; }
 
+        [JsonProperty("goods")]
         public List<Goods> Goods { get; set; }
 
         [JsonProperty("live_type")]

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EasyAbp.Abp.WeChat.Official.Services.Media.Response
 {
-  public  class GetMaterialCountResponse
+    public class GetMaterialCountResponse
     {
         [JsonProperty("voice_count")]
         public int VoiceCount { get; set; }
@@ -19,6 +19,5 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Response
 
         [JsonProperty("news_count")]
         public int NewsCount { get; set; }
-
     }
 }

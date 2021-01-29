@@ -18,6 +18,7 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Response
         [JsonProperty("maxcount")]
         public int MaxCount { get; set; }
 
+        [JsonProperty("list")]
         public List<List> List { get; set; }
     }
 

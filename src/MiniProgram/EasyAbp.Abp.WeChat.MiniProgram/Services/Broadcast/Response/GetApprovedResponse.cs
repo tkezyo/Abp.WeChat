@@ -6,13 +6,15 @@ using System.Text;
 
 namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Response
 {
-    public class GetApprovedUrlResponse : IMiniProgramResponse
+    public class GetApprovedResponse : IMiniProgramResponse
 
     {
         public string ErrorMessage { get; set; }
 
         public int ErrorCode { get; set; }
-         public List<GetApprovedGoods> GetApprovedGoods { get; set; }
+
+        [JsonProperty("goods")]
+        public List<GetApprovedGoods> Goods { get; set; }
     }
 
     public class GetApprovedGoods

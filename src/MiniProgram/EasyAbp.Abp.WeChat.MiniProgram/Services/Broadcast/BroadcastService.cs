@@ -73,7 +73,7 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast
               request);
         }
 
-        public Task<AddGoodsRoomResponse> AddGoodsRoomAsync(AddGoodsRoomRequest request)
+        public Task<AddGoodsRoomResponse> AddGoodsRoom(AddGoodsRoomRequest request)
         {
 
             return WeChatMiniProgramApiRequester.RequestAsync<AddGoodsRoomResponse>(AddGoodsRoomUrl,
@@ -309,6 +309,22 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast
         {
 
             return WeChatMiniProgramApiRequester.RequestAsync<DeleteInRoomGoodsResponse>(DeleteRoleUrl,
+              HttpMethod.Post,
+              request);
+        }
+
+        public Task<GetRoleListResponse> GetRoleListAsync(GetRoleListRequest request)
+        {
+
+            return WeChatMiniProgramApiRequester.RequestAsync<GetRoleListResponse>(GetRoleListUrl,
+              HttpMethod.Post,
+              request);
+        }
+
+        public Task<GetApprovedResponse> vAsync(GetAssistantlistRequest request)
+        {
+
+            return WeChatMiniProgramApiRequester.RequestAsync<GetApprovedResponse>(GetApprovedUrl,
               HttpMethod.Post,
               request);
         }

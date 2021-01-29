@@ -8,6 +8,7 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Request
 {
     public class AddNewsRequest : OfficialCommonRequest
     {
+        [JsonProperty("articles")]
         public List<NewsArticle> Articles { get; set; }
     }
 

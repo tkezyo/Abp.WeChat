@@ -8,6 +8,7 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Request
 {
     public class AddGoodsRequest : MiniProgramCommonRequest
     {
+        [JsonProperty("goodsInfo")]
         public List<GoodsInfo> GoodsInfo { get; set; }
     }
 

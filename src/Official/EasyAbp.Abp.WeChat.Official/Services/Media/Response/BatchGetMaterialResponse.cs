@@ -13,6 +13,7 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Response
         [JsonProperty("item_count")]
         public int ItemCount { get; set; }
 
+        [JsonProperty("item")]
         public List<Item> Item { get; set; }
 
     }
@@ -21,6 +22,8 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Response
     {
         [JsonProperty("media_id")]
         public string MediaId { get; set; }
+
+        [JsonProperty("content")]
         public List<Content> Content { get; set; }
 
         [JsonProperty("name")]
@@ -36,6 +39,7 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Response
     }
     public class Content
     {
+        [JsonProperty("news_item")]
         public List<NewsItem> NewsItem { get; set; }
 
     }
