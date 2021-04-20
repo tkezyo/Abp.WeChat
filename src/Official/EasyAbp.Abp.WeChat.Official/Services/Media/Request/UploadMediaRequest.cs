@@ -25,10 +25,12 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Request
         /// <summary>
         /// 视频素材的标题
         /// </summary>
+        [JsonProperty("title")]
         public string Title { get; set; }
         /// <summary>
         /// 视频素材的描述
         /// </summary>
+        [JsonProperty("introduction")]
         public string Introduction { get; set; }
     }
 }

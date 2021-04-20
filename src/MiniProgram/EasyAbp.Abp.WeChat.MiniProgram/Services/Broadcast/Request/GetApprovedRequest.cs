@@ -6,21 +6,15 @@ using System.Text;
 
 namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Request
 {
-    public class GetRoleListRequestcs : MiniProgramCommonRequest
+    public class GetApprovedRequest : MiniProgramCommonRequest
     {
-
-        [JsonProperty("role")]
-        public int Role { get; set; }
-
-
         [JsonProperty("offset")]
-        public int offset { get; set; }
-
+        public int Offset { get; set; }
 
         [JsonProperty("limit")]
         public int Limit { get; set; }
 
-        [JsonProperty("keyword")]
-        public int KeyWord { get; set; }
+        [JsonProperty("status")]
+        public int Status { get; set; }
     }
 }

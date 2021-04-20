@@ -14,6 +14,7 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media.Request
         [JsonProperty("index")]
         public string Index { get; set; }
 
+        [JsonProperty("articles")]
         public List<UpdateNewsArticle> Articles { get; set; }
     }
     public class UpdateNewsArticle

@@ -12,7 +12,8 @@ namespace EasyAbp.Abp.WeChat.MiniProgram.Services.Broadcast.Request
         [JsonProperty("roomId")]
         public int RoomId { get; set; }
 
-      public List<Users> Users { get; set; }
+        [JsonProperty("users")]
+        public List<Users> Users { get; set; }
     }
     public class Users
     {

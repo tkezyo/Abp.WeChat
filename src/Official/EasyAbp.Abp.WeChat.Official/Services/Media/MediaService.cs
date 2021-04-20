@@ -81,6 +81,7 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media
         /// <param name="contentName"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
+       
         public Task<UploadImageResponse> UploadImageAsync(byte[] bytes, string contentName, string fileName)
         {
             var content = new MultipartFormDataContent();
@@ -90,6 +91,14 @@ namespace EasyAbp.Abp.WeChat.Official.Services.Media
             HttpMethod.Post,
             null, true, content);
         }
+
+        public Task<GetMaterialResponse> GetMaterialAsync(GetMaterialRequest request)
+        {
+            return WeChatOfficialApiRequester.RequestAsync<GetMaterialResponse>(UploadMediaUrl,
+              HttpMethod.Post,
+              request);
+        }
+
         public Task<DelMediaResponse> DelMediaAsync(GetMediaRequest request)
         {
             return WeChatOfficialApiRequester.RequestAsync<DelMediaResponse>(DelMaterialUrl,
